@@ -184,10 +184,10 @@ let crystal_fir = {
 			
 			//nightmare
 			it_lickitung:		{x: 506, y: 49,  item: "event" 				}, //req: lickitung in party
-			it_growlithe:		{x: 530, y: 49,  item: "event" 				}, //req: growlithe in party
-			it_pichu:			{x: 551, y: 49,  item: "event" 				}, //req: pichu in party
-			it_staryu:			{x: 570, y: 49,  item: "event" 				}, //req: staryu in party
-			it_oddish:			{x: 587, y: 49,  item: "event" 				}, //req: oddish in party
+			it_oddish:		{x: 530, y: 49,  item: "event" 				}, //req: oddish in party
+			it_staryu:			{x: 551, y: 49,  item: "event" 				}, //req: staryu in party
+			it_growlithe:			{x: 570, y: 49,  item: "event" 				}, //req: growlithe in party
+			it_pichu:			{x: 587, y: 49,  item: "event" 				}, //req: pichu in party
 		},
 		cherrygrove: {
 			mart:     	{x: 321, y: 60                          },
@@ -1235,6 +1235,26 @@ let crystal_fir = {
 			it_gr_f5_3: {x: 670, y: 434, item: "overworld" },
 			it_gr_f5_4: {x: 700, y: 434, item: "overworld" },
 			it_gr_f5_5: {x: 730, y: 434, item: "overworld" },
+			
+			it_vending_gr_1: {x: 610, y: 480, item: "overworld" },
+			it_vending_gr_2: {x: 640, y: 480, item: "overworld" },
+			it_vending_gr_3: {x: 670, y: 480, item: "overworld" },
+			it_vending_gr_4: {x: 700, y: 480, item: "overworld" },
+			it_vending_gr_5: {x: 730, y: 480, item: "overworld" },
+			
+			it_gamecorner_gr_1: {x: 610, y: 526, item: "overworld" },
+			it_gamecorner_gr_2: {x: 640, y: 526, item: "overworld" },
+			it_gamecorner_gr_3: {x: 670, y: 526, item: "overworld" },
+			it_gamecorner_gr_4: {x: 700, y: 526, item: "overworld" },
+			it_gamecorner_gr_5: {x: 730, y: 526, item: "overworld" },	
+			
+			it_buena_1: {x: 230, y: 526, item: "overworld" },
+			it_buena_2: {x: 260, y: 526, item: "overworld" },
+			it_buena_3: {x: 290, y: 526, item: "overworld" },
+			it_buena_4: {x: 320, y: 526, item: "overworld" },
+			it_buena_5: {x: 350, y: 526, item: "overworld" },
+			
+			
         },
         
         shop_kanto: {        
@@ -1327,6 +1347,18 @@ let crystal_fir = {
 			it_c_f5_right3: {x: 670, y: 388, item: "overworld" },
 			it_c_f5_right4: {x: 700, y: 388, item: "overworld" },
 			it_c_f5_right5: {x: 730, y: 388, item: "overworld" },
+			
+			it_vending_c_1: {x: 610, y: 434, item: "overworld" },
+			it_vending_c_2: {x: 640, y: 434, item: "overworld" },
+			it_vending_c_3: {x: 670, y: 434, item: "overworld" },
+			it_vending_c_4: {x: 700, y: 434, item: "overworld" },
+			it_vending_c_5: {x: 730, y: 434, item: "overworld" },
+			
+			it_gamecorner_c_1: {x: 610, y: 480, item: "overworld" },
+			it_gamecorner_c_2: {x: 640, y: 480, item: "overworld" },
+			it_gamecorner_c_3: {x: 670, y: 480, item: "overworld" },
+			it_gamecorner_c_4: {x: 700, y: 480, item: "overworld" },
+			it_gamecorner_c_5: {x: 730, y: 480, item: "overworld" },
         },
 	
 	},
