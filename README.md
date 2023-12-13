@@ -10,5 +10,3 @@ Check the [open issues](https://gitlab.com/Sekii/pokemon-tracker/-/issues) to co
 
 ## Tips and tools to make your own map
 There is a debug mode and a specification of the map files available in the [following site](readme/make-your-own-map.md).
-
-So each map takes less time to load the images are compressed using [PNGGauntlet](https://pnggauntlet.com/) for Windows ([trimage](https://trimage.org/) seems a good alternative for Mac & Linux).

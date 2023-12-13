@@ -1,6 +1,8 @@
 # Tips and tools to make your own map
 I recommend checking an existing tracker to use as a template. Each map has a .js file in the "games" folder detailing all the locations, warps, marks, etc. and a named folder in the "images" folder. This folder structure needs to be preserved.
 
+So each map takes less time to load the images are compressed using [PNGGauntlet](https://pnggauntlet.com/) for Windows ([trimage](https://trimage.org/) seems a good alternative for Mac & Linux).
+
 ## Debug mode
 To activate it, add `?debug` to the url in your browser. This mode will enable:
 - **Middle clicking** on the map or a location will give you the coordinates for the mouse and copy them into your clipboard (which then can be copypasted in your own .js file).
