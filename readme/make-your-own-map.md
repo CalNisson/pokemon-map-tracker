@@ -40,6 +40,8 @@ There's 5 additional fields with different field specificators: `locations`, `wa
 - `name`: name used when another warp links to it. If undefined it'll pick the first line of the location name
 - `corridor`: if defined it will be treated as a corridor. Ideally it points to the other side of the corridor (or to itself if it's a dead end), but currently the value itself is unused`
 - `item`: only used if `is_item_tracker` is turned on. The name specifies which image should it use as its icon
+- `text_offset`: offset of the textbox rendered relative to where the icon would be rendered
+
 
 `marks`, `progress`, `modifiers` represent a 2D grid (a list of lists). Elements are rendered in order. Each of the lists represents a column in `modifiers` and a row in `marks` & `progress`. Each item has two values:
 1. a string which defines the image or color to render
