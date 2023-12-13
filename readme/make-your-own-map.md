@@ -29,6 +29,15 @@ First, there's a bunch of metadata at the top of the file:
 - `config_tracker_author`: name of the map author
 - `config_tracker_link`: link for the map author
 
-There's 5 additional fields with different field specificators: `locations`, `warps`, `marks`, `progress` and `modifiers`.
+There's 5 additional fields with different field specificators: `locations`, `warps`, `marks`, `progress` and `modifiers`. Each of these are objects or lists which require further explanation.
+
+`locations`: each entry corresponds to a .png in the `images\<NAME_GAME>\maps` folder
+- `x`, `y`, `w`, `h`: the x and y coordinates of the box in the minimap as well as its width and height
+- `name`: display name. A single new line (`\n`) is allowed
+
+`warps`: each entry corresponds to an entry to the `locations` list and contains several entries that correspond to each individual "?" in the map
+- `x`, `y`: x and y coordinates of the warp in the image
+- `name`: name used when another warp links to it. If undefined it'll pick the first line of the location name
+- `corridor`: if defined it will be treated as a corridor. Ideally it points to the other side of the corridor (or to itself if it's a dead end), but currently the value itself is unused
 
 // TODO
