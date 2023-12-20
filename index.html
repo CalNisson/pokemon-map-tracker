@@ -7,21 +7,23 @@
     <title>Pokémon Warp Tracker</title>
     <link rel="stylesheet" href="main.css"/>
     
-    <script src="games/_tooltips.js"></script>
-    <script src="games/crystal.js"></script>
-    <script src="games/crystalg.js"></script>
-    <script src="games/emerald.js"></script>
-    <script src="games/platinum.js"></script>
-    <script src="games/hgss.js"></script>
-    <script src="games/frlg.js"></script>
-    <script src="games/frlg_nosevii.js"></script>
-    <script src="games/white2.js"></script>
-    <script src="games/white2ad.js"></script>
-    <script src="games/black2ad.js"></script>
-    <script src="games/white2_a.js"></script>
-    <script src="games/gen3crossover.js"></script>
-    <script src="games/crystal_fir.js"></script>
-    <script src="games/emerald_ex.js"></script>
+    <script src="data/games/crystal.js"></script>
+    <script src="data/games/crystalg.js"></script>
+    <script src="data/games/emerald.js"></script>
+    <script src="data/games/platinum.js"></script>
+    <script src="data/games/hgss.js"></script>
+    <script src="data/games/frlg.js"></script>
+    <script src="data/games/frlg_nosevii.js"></script>
+    <script src="data/games/white2.js"></script>
+    <script src="data/games/white2ad.js"></script>
+    <script src="data/games/black2ad.js"></script>
+    <script src="data/games/white2_a.js"></script>
+    <script src="data/games/gen3crossover.js"></script>
+    <script src="data/games/crystal_fir.js"></script>
+    <script src="data/games/emerald_ex.js"></script>
+
+    <script src="data/tooltips.js"></script>
+    <script src="data/tracker_info.js"></script>
 
     <script src="code/main.js"></script>
     <script src="code/render.js"></script>
@@ -30,6 +32,7 @@
     <script src="code/network.js"></script>
     <script src="code/automarker.js"></script>
     <script src="code/tests.js"></script>
+    
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     
     <meta name="viewport" content="width=device-width, initial-MAP_SCALE=1">
@@ -122,10 +125,11 @@
             The map is color coded (i.e. Emerald has <b style="color:#ff3910;">cities</b>, <b style="color:#39ad08;">routes</b> and <b style="color:#6638ef;">dungeons</b>)
             <br><u>The progress tracker can be used to mark warps too</u>.
             <h1>Credits</h1>
-              <li><u>Pokémon Crystal</u>: user-friendly version created by <a href="https://github.com/iFatRain">iFatRain</a> (and more, check download link to get the full list). A more chaotic version is currently in development by G-Meister.</li>
-              <li><u>Pokémon Emerald</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker uses assets and information from <a href="https://github.com/SaltContainer/PokemonEmeraldMapRandoTracker/releases">SaltContainer's tracker</a>.</li>
+              <p>Tracker created by <a href="https://twitter.com/srcSantana">Sergi "Sekii" Santana</a>.</p>
+              <li><u>Pokémon Crystal</u>: user-friendly version created by <a href="https://github.com/iFatRain">iFatRain</a> (and more, check download link to get the full list). A more chaotic version is currently in development by G-Meister. Tracker created by <a href="https://twitter.com/srcSantana">Sekii</a>.</li>
+              <li><u>Pokémon Emerald</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker made by <a href="https://twitter.com/srcSantana">Sekii</a> using assets and information from <a href="https://github.com/SaltContainer/PokemonEmeraldMapRandoTracker/releases">SaltContainer's tracker</a>.</li>
               <li><u>Pokémon FireRed/LeafGreen</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker created by <a href="https://saltcontainer.github.io/">SaltContainer</a>.</li>
-              <li><u>Pokémon Platinum</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker uses assets and information from <a href="https://github.com/SaltContainer/PokemonEmeraldMapRandoTracker/releases">SaltContainer's tracker</a>.</li>
+              <li><u>Pokémon Platinum</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker made by <a href="https://twitter.com/srcSantana">Sekii</a> using assets and information from <a href="https://github.com/SaltContainer/PokemonEmeraldMapRandoTracker/releases">SaltContainer's tracker</a>.</li>
               <li><u>Pokémon HeartGold/SoulSilver</u>: created by <a href="https://github.com/adrienntindall">Adrienn Tindall</a>. Tracker created by <a href="https://twitter.com/RealSeb95">Seb Hammes</a>.</li>
               <li><u>Pokémon White 2</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker created by <a href="https://twitter.com/RealSeb95">Seb Hammes</a>.</li>
               <li><u>Pokémon Black2/White2</u>: created by <a href="https://github.com/adrienntindall">Adrienn Tindall</a>. Two different trackers created by <a href="https://twitter.com/KrakenJaken">KrakenTheJaken</a> & <a href="https://twitter.com/RealSeb95">Seb Hammes</a>.</li>

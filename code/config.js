@@ -81,7 +81,7 @@ function SaveFile() {
     let d = time.getFullYear() + "-" + (time.getMonth()+1) + "-" + time.getDate() + "_" + time.getHours() + "." + time.getMinutes() + "." + time.getSeconds();
     let a = document.createElement("a");
     a.href = window.URL.createObjectURL(new Blob([text], {type: "text/plain"}));
-    a.download = d + "_pokemon-tracker.txt";
+    a.download = d + "_" + TRACKER_NAME + ".txt";
     a.click();
 }
 

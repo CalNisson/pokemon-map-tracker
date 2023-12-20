@@ -1,21 +1,3 @@
-// Games will be shown in the settings in order
-let ordered_games = [
-    crystal,
-    crystalg,
-    emerald,
-    frlg_nosevii,
-    frlg,
-    platinum,
-    hgss,
-    white2,
-    white2ad,
-    black2ad,
-    white2_a,
-    gen3crossover,
-    crystal_fir,
-    emerald_ex
-];
-
 let DEBUG = {
     ENABLED: false,
     WARP_TO_SELF:     false,
