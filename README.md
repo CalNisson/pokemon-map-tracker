@@ -12,6 +12,6 @@ Check the [open issues](https://gitlab.com/Sekii/pokemon-tracker/-/issues) to co
 There is a debug mode and a specification of the map files available in the [following site](readme/make-your-own-map.md).
 
 ## License
-The code is under the [MIT License](code/LICENSE.txt), so feel free to use it for other games. If you do I'd appreciate if you share it with me and credit the original project.
+The code is under the [MIT License](code/LICENSE.txt), so feel free to fork it for other games. If you do I'd appreciate if you share it with me and credit the original project.
 
 Data, fonts and images belong to their own copyright holders.
