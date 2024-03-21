@@ -9,7 +9,7 @@ let frlg_nosevii = {
     // Config texts
     config_name: "FireRed/LeafGreen (No Sevii Islands)",
     config_randomizer_author: "Pointcrow",
-    config_randomizer_link: "https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/",
+    config_randomizer_link: "https://warprandomizer.com/",
     config_tracker_author: "SaltContainer", 
     config_tracker_link: "https://saltcontainer.github.io",
 

@@ -7,6 +7,7 @@ let ordered_games = [
     frlg,
     platinum,
     hgss,
+    hgss_pc,
     white2,
     white2ad,
     black2ad,
