@@ -18,7 +18,7 @@ function ShowConfigNetwork() {
                 iceServers: [
                     { urls : "stun:stun.l.google.com:19302" },
                     { urls : "turn:0.peerjs.com:3478",   username : "peerjs", credential : "peerjsp" },
-                    { urls : "turn:65.21.186.209:3478",  username : "test",   credential : "1234"    },
+                    { urls : "turn:65.108.7.218:3478",  username : "sekii",   credential : "pokemontracker"    },
                 ],
                 sdpSemantics: 'unified-plan'
             }
