@@ -157,6 +157,8 @@ const tooltips = {
     silph_scope: undefined,
     gold_teeth: undefined,
     tri_pass: "Tri-Pass",
+    frlg_birds: "Legendary\nBirds",
+    frlg_mewtu: "Mewtwo",
 
     /* Platinum */
     regis: "Regice Regirock\nRegisteel",
@@ -189,7 +191,8 @@ const tooltips = {
     hm_rockclimb: "HM 08\n(Rock Climb)",
 
     /* Heart Gold - Soul Silver */
-    embedded_tower: "Embedded\nTower",
+	hgss_kurt:		 "Kurt's\nHouse",
+    embedded_tower:  "Embedded\nTower",
     hgss_surf:       "Blocked by\nSurf",
     hgss_whirlpool:  "Blocked by\nWhirlpool",
     hgss_darkness:   "Blocked by\nFlash",
