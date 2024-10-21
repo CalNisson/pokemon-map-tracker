@@ -288,12 +288,13 @@ let platinum = {
         fightarea: {
             gate:       {x: 55,  y: 64                               },
 			center:     {x: 310, y: 146                              },
-			mart:       {x: 526, y: 145                              },
-			up:         {x: 433, y: 254                              },
-			bot:        {x: 431, y: 324                              },
-			center_up:  {x: 56,  y: 370, name: "Fight Area (Center)" },
-			center_mid: {x: 140, y: 415, name: "Fight Area (Center)" },
-			center_bot: {x: 236, y: 370, name: "Fight Area (Center)" },
+            mart:       {x: 526, y: 145                              },
+            up:         {x: 433, y: 254                              },
+            bot:        {x: 431, y: 324                              },
+            frontier:   {x: 433, y: 53                               },
+            center_up:  {x: 56,  y: 370, name: "Fight Area (Center)" },
+            center_mid: {x: 140, y: 415, name: "Fight Area (Center)" },
+            center_bot: {x: 236, y: 370, name: "Fight Area (Center)" },
         },
         survivalarea: {
 			up:         {x: 285, y: 68,  name: "Survival Area (Top)"    },
@@ -312,6 +313,7 @@ let platinum = {
 			center_mid: {x: 641, y: 182, name: "Resort Area (Center)" },
 			center_bot: {x: 686, y: 110, name: "Resort Area (Center)" },
 			villa:      {x: 360, y: 247                               },
+			ribbon:     {x: 391, y: 152                               },
         },
 
         // Routes
