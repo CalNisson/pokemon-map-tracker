@@ -1,11 +1,18 @@
 pages:
   stage: deploy
   script:
-  - mkdir .public
-  - cp -r * .public
-  - mv .public public
+    - mkdir public
+    - cp -r images public/images
+    - cp -r fonts public/fonts
+    - cp -r src public/src
+    - cp -r data public/data
+    - cp -r code public/code
+    - cp *.html public/ || true
+    - cp *.js public/ || true
+    - cp *.css public/ || true
+    - cp favicon.ico public/ || true
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master
