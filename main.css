@@ -196,6 +196,7 @@ h1.changelog_header {
   width: 100%;
   height: auto;
   display: block;
+  background-color: #333333;
 }
 
 
@@ -216,7 +217,7 @@ h1.changelog_header {
   height: auto;
   max-height: none;
   border-radius: 8px;
-  background: #fafafa;
+  background: transparent;
   border: 1px solid #ddd;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.08);
   overflow-y: auto;
