@@ -1,53 +1,77 @@
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>Pokémon Warp Tracker</title>
-    <link rel="stylesheet" href="main.css"/>
-    
-    <script src="data/games/crystal.js"></script>
-    <script src="data/games/crystalg.js"></script>
-    <script src="data/games/emerald.js"></script>
-    <script src="data/games/platinum.js"></script>
-    <script src="data/games/hgss_ad.js"></script>
-    <script src="data/games/hgss_pc.js"></script>
-    <script src="data/games/frlg.js"></script>
-    <script src="data/games/frlg_nosevii.js"></script>
-	  <script src="data/games/black2_ad.js"></script>
-    <script src="data/games/white2_ad.js"></script>
-    <script src="data/games/white2_pc.js"></script>
-    <script src="data/games/white2_a.js"></script>
-    <script src="data/games/gen3crossover.js"></script>
-    <script src="data/games/crystal_fir.js"></script>
-    <script src="data/games/emerald_ex.js"></script>
+<head>
+  <meta charset="utf-8"/>
+  <title>Pokémon Warp Tracker</title>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="main.css"/>
+  <link rel="stylesheet" href="src/css/fomantic.css">
+  <link rel="stylesheet" href="src/css/sprites.css">
+  
+  <link rel="icon" href="images/icon.png">
+  <meta property="og:title" content="Pokémon Warp Tracker"/>
+  <meta property="og:description" content="Tool to track Warps in Pokémon Warp Randomizer"/>
+  <meta property="og:image" content="https://sekii.gitlab.io/pokemon-tracker/images/thumbnail.png"/>
+  <meta name="twitter:card" content="summary_large_image"></meta>
 
-    <script src="data/tooltips.js"></script>
-    <script src="data/tracker_info.js"></script>
+  <!-- Game Data -->
+  <script src="data/games/crystal.js"></script>
+  <script src="data/games/crystalg.js"></script>
+  <script src="data/games/emerald.js"></script>
+  <script src="data/games/platinum.js"></script>
+  <script src="data/games/hgss_ad.js"></script>
+  <script src="data/games/hgss_pc.js"></script>
+  <script src="data/games/frlg.js"></script>
+  <script src="data/games/frlg_nosevii.js"></script>
+  <script src="data/games/black2_ad.js"></script>
+  <script src="data/games/white2_ad.js"></script>
+  <script src="data/games/white2_pc.js"></script>
+  <script src="data/games/white2_a.js"></script>
+  <script src="data/games/gen3crossover.js"></script>
+  <script src="data/games/crystal_fir.js"></script>
+  <script src="data/games/emerald_ex.js"></script>
+  <script src="data/locations.js"></script>
 
-    <script src="code/main.js"></script>
-    <script src="code/render.js"></script>
-    <script src="code/input.js"></script>
-    <script src="code/config.js"></script>
-    <script src="code/network.js"></script>
-    <script src="code/automarker.js"></script>
-    <script src="code/tests.js"></script>
-    
-    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
-    
-    <meta name="viewport" content="width=device-width, initial-MAP_SCALE=1">
-    <link rel="icon" href="images/icon.png">
-    <!-- Social media metadata -->
-    <meta property="og:title" content="Pokémon Warp Tracker"/>
-    <meta property="og:description" content="Tool to track Warps in Pokémon Warp Randomizer"/>
-    <meta property="og:image" content="https://sekii.gitlab.io/pokemon-tracker/images/thumbnail.png"/>
-    <meta name="twitter:card" content="summary_large_image"></meta>
-  </head>
+  <script src="data/tooltips.js"></script>
+  <script src="data/tracker_info.js"></script>
 
-  <body>
-    <article>
+  <script src="code/main.js"></script>
+  <script src="code/render.js"></script>
+  <script src="code/input.js"></script>
+  <script src="code/config.js"></script>
+  <script src="code/network.js"></script>
+  <script src="code/automarker.js"></script>
+  <script src="code/tests.js"></script>
+
+  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+  <script src="src/js/jquery.js"></script>
+  <script src="src/js/fomantic.js"></script>
+  <script src="src/js/pokemon.js"></script>
+</head>
+
+<body>
+  <article>
+    <div id="main-container">
       <canvas id="canvas">Your browser does not support canvas element.</canvas>
+
+      <div id="encounter-tracker">
+        <h2>Encounter Tracker</h2>
+        <table id="encounter-table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Encounter</th>
+              <th>Nickname</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
 
       <div id="config_window" class="window window_hidden">
         <div class="config_content">
@@ -65,7 +89,7 @@
             <input type="color" id="line_color" onchange="ChangeLineColor(value)">
             <button onclick="ResetColor()">Default color</button>
           </div>
-          <p id="game_buttons"></p> <!-- They get created in code -->
+          <p id="game_buttons"></p>
           <p id="loading_game_text">Loading game...</p>
           <p id="config_networktoggle" class="config_toggle" onclick="ShowConfigNetwork()">+ Show network options (don't show on stream)</p>
           <div id="config_network" class="config_hidden">
@@ -127,7 +151,7 @@
             <br><u>The progress tracker can be used to mark warps too</u>.
             <h1>Credits</h1>
               <p>Tracker created by <a href="https://twitter.com/srcSantana">Sergi "Sekii" Santana</a>.</p>
-              <li><u>Pokémon Crystal</u>: user-friendly version created by <a href="https://github.com/iFatRain">iFatRain</a> (and more, check download link to get the full list). A more chaotic version is currently in development by G-Meister. Tracker created by <a href="https://twitter.com/srcSantana">Sekii</a>.</li>
+              <li><u>Pokémon Crystal</u>: user-friendly version created by <a href="https://github.com/iFatRain">iFatRain</a>. A more chaotic version is currently in development by G-Meister. Tracker created by <a href="https://twitter.com/srcSantana">Sekii</a>.</li>
               <li><u>Pokémon Emerald</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker made by <a href="https://twitter.com/srcSantana">Sekii</a> using assets and information from <a href="https://github.com/SaltContainer/PokemonEmeraldMapRandoTracker/releases">SaltContainer's tracker</a>.</li>
               <li><u>Pokémon FireRed/LeafGreen</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker created by <a href="https://saltcontainer.github.io/">SaltContainer</a>.</li>
               <li><u>Pokémon Platinum</u>: commissioned by <a href="https://www.twitch.tv/PointCrow">PointCrow</a> and created by <a href="https://www.reddit.com/r/pokemon/comments/qel5h4/i_created_a_mod_that_randomizes_the_entire_map_of/">XLuma, Turtleisaac, and AtSign</a>. Tracker made by <a href="https://twitter.com/srcSantana">Sekii</a> using assets and information from <a href="https://github.com/SaltContainer/PokemonEmeraldMapRandoTracker/releases">SaltContainer's tracker</a>.</li>
@@ -160,7 +184,7 @@
           <div id="help_v4">
             <h1>Version 4</h1>
             <ul>
-              <li>Hover the mouse over icons to get a tooltips with descriptions. Toggle off it in the settings.</li>
+              <li>Hover the mouse over icons to get tooltips with descriptions. Toggle off in the settings.</li>
               <li>Left click the remaining checks number to highlight all locations with unknown warps.</li>
               <li>Modifiers no longer get removed when creating a new link over them.</li>
               <li>Showing remaining unknown warps. Clicking on it will highlight them on the location and the map.</li>
@@ -176,7 +200,7 @@
           </div>
           <hr>
           <p>
-            <a class="social-media" href="https://twitter.com/srcSantana">          <img class="social-media-image" src="images/_social-media/twitter-32x32.png"></a>
+            <a class="social-media" href="https://twitter.com/srcSantana"><img class="social-media-image" src="images/_social-media/twitter-32x32.png"></a>
             <a class="social-media" href="https://gitlab.com/Sekii/pokemon-tracker"><img class="social-media-image" src="images/_social-media/gitlab-32x32.png"></a>
             <div>
               <div>Report any bugs at <b>sekiisc@gmail.com</b>, add a save file if possible</div>
@@ -190,5 +214,91 @@
   </body>
 
   <script type="text/javascript">init();</script>
+
+  <script type="text/javascript">
+    init();
+
+    const STATUSES = ["", "Captured", "Missed", "Dead", "Killed"];
+
+    function buildEncounterTable() {
+      const tbody = document.querySelector("#encounter-table tbody");
+      LOCATIONS.forEach(loc => {
+        const row = document.createElement("tr");
+
+        const locCell = document.createElement("td");
+        locCell.textContent = loc;
+        row.appendChild(locCell);
+
+        const encCell = document.createElement("td");
+        encCell.innerHTML = `
+          <div class="ui search selection dropdown encounter-picker">
+            <input type="hidden" name="pokemon">
+            <i class="dropdown icon"></i>
+            <div class="default text">Select Pokémon</div>
+            <div class="menu"></div>
+          </div>
+        `;
+        row.appendChild(encCell);
+
+        const nickCell = document.createElement("td");
+        const nickInput = document.createElement("input");
+        nickInput.type = "text";
+        nickCell.appendChild(nickInput);
+        row.appendChild(nickCell);
+
+        const statCell = document.createElement("td");
+        const statSelect = document.createElement("select");
+        for (let s of STATUSES) {
+          let opt = document.createElement("option");
+          opt.value = s;
+          opt.textContent = s === "" ? "(None)" : s;
+          statSelect.appendChild(opt);
+        }
+        statCell.appendChild(statSelect);
+        row.appendChild(statCell);
+
+        tbody.appendChild(row);
+      });
+    }
+
+    function buildDropdowns() {
+      const dropdowns = document.querySelectorAll(".encounter-picker .menu");
+
+      dropdowns.forEach(menu => {
+        pkmnData.forEach(p => {
+          const item = document.createElement("div");
+          item.className = "item";
+          item.setAttribute("data-value", p.value);
+
+          const icon = document.createElement("i");
+          icon.className = `pkmn ${p.icon}`;
+          icon.innerHTML = "&nbsp;";
+          item.appendChild(icon);
+
+          const span = document.createElement("span");
+          span.textContent = " " + p.name;
+          item.appendChild(span);
+
+          menu.appendChild(item);
+        });
+      });
+
+      $('.ui.dropdown').dropdown({
+        onChange: function(value, text, $choice) {
+          console.log("Selected Pokémon:", value);
+        }
+      });
+    }
+
+    function renderTracker() {
+      buildEncounterTable();
+      buildDropdowns();
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderTracker();
+    });
+  </script>
+
 
 </html>

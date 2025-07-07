@@ -24,10 +24,12 @@ function FileUploaded(event) {
     let reader = new FileReader();
     reader.onload = function() {
         let lines = reader.result.split("\n");
-        while (lines[0].startsWith("#")) { // Parse all progress trackers
+
+        // First parse progress trackers as before
+        while (lines.length > 0 && lines[0].startsWith("#") && !lines[0].startsWith("#ENCOUNTERS")) { 
             let fields = lines[0].split(",");
             let current_game = games[fields[0].substring(1, fields[0].length)];
-            fields.shift;
+            fields.shift();
             current_game.obtained.clear();
             for (let p of fields) {
                 current_game.obtained.add(p);
@@ -35,7 +37,27 @@ function FileUploaded(event) {
             lines.shift();
         }
 
-        LinesToWarps(lines);
+        // Next, separate encounter lines starting at #ENCOUNTERS marker
+        let encounterStartIndex = lines.findIndex(line => line.trim() === "#ENCOUNTERS");
+        let warpLines = [];
+        let encounterLines = [];
+
+        if (encounterStartIndex >= 0) {
+            warpLines = lines.slice(0, encounterStartIndex);
+            encounterLines = lines.slice(encounterStartIndex + 1);
+        } else {
+            warpLines = lines;
+        }
+
+        // Parse warps as before
+        LinesToWarps(warpLines);
+
+        // Parse encounters if any
+        if (encounterLines.length > 0) {
+            populateEncounterTable(encounterLines);
+        }
+
+        // Sync with connections if connected
         if (connected_to || connections.length > 0) {
             let text = lines.join("\n");
             if (connected_to) {
@@ -52,6 +74,60 @@ function FileUploaded(event) {
     }
     reader.readAsText(loadfile_selector.files[0]);
 }
+
+function populateEncounterTable(encounterLines) {
+    const tbody = document.querySelector("#encounter-table tbody");
+    if (!tbody) return;
+    tbody.innerHTML = ""; // clear existing rows
+
+    for (let line of encounterLines) {
+        if (line.trim().length === 0) continue;
+        let parts = line.split(",");
+        if (parts.length < 4) {
+            console.warn("Skipping invalid encounter line:", line);
+            continue;
+        }
+        let [location, encounter, nickname, status] = parts;
+
+        let row = document.createElement("tr");
+
+        let locCell = document.createElement("td");
+        locCell.textContent = location;
+        row.appendChild(locCell);
+
+        let encCell = document.createElement("td");
+        let encInput = document.createElement("input");
+        encInput.type = "text";
+        encInput.setAttribute("list", "pokemon-list"); // your datalist if exists
+        encInput.value = encounter;
+        encCell.appendChild(encInput);
+        row.appendChild(encCell);
+
+        let nickCell = document.createElement("td");
+        let nickInput = document.createElement("input");
+        nickInput.type = "text";
+        nickInput.value = nickname;
+        nickCell.appendChild(nickInput);
+        row.appendChild(nickCell);
+
+        let statCell = document.createElement("td");
+        let statSelect = document.createElement("select");
+
+        // Assuming STATUSES is defined globally as your status options array
+        for (let s of STATUSES) {
+            let opt = document.createElement("option");
+            opt.value = s;
+            opt.textContent = s;
+            if (s === status) opt.selected = true;
+            statSelect.appendChild(opt);
+        }
+        statCell.appendChild(statSelect);
+        row.appendChild(statCell);
+
+        tbody.appendChild(row);
+    }
+}
+
 
 function SaveFile() {
     let text = "";
@@ -71,6 +147,13 @@ function SaveFile() {
         text += WarpsToText(games[key_game]);
     }
 
+    // Add Encounter Tracker data here as CSV after a special marker
+    text += "#ENCOUNTERS\n";
+    const encounters = collectEncounterData();
+    for (let e of encounters) {
+        // CSV line: location,encounter,nickname,status
+        text += `${e.location},${e.encounter},${e.nickname},${e.status}\n`;
+    }
 
     if (text.length == 0) {
         alert("There's nothing to save.");
@@ -83,6 +166,24 @@ function SaveFile() {
     a.href = window.URL.createObjectURL(new Blob([text], {type: "text/plain"}));
     a.download = d + "_" + TRACKER_NAME + ".txt";
     a.click();
+}
+
+// Helper to collect encounter rows from the table
+function collectEncounterData() {
+    const tbody = document.querySelector("#encounter-table tbody");
+    if (!tbody) return [];
+    const encounters = [];
+
+    for (let row of tbody.rows) {
+        let cells = row.cells;
+        encounters.push({
+            location: cells[0].textContent.trim(),
+            encounter: cells[1].querySelector('input')?.value.trim() || "",
+            nickname: cells[2].querySelector('input')?.value.trim() || "",
+            status: cells[3].querySelector('select')?.value || ""
+        });
+    }
+    return encounters;
 }
 
 function WarpsToText (current_game) {
