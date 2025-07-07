@@ -193,8 +193,6 @@ h1.changelog_header {
 }
 
 #canvas {
-  width: 100%;
-  height: auto;
   display: block;
   background-color: #333333;
 }
@@ -213,7 +211,7 @@ h1.changelog_header {
 #encounter-tracker {
   margin-top: 10px;
   flex: 1;
-  width: 100%;
+  width: 90%;
   height: auto;
   max-height: none;
   border-radius: 8px;
