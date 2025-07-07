@@ -91,10 +91,10 @@ let icons = {
 let images = [];
 function LoadImages() {
     // Obtain map and frame
-    let list = ["images/" + game.folder + "/" + game.name + ".png", "images/" + game.folder + "/frame.png"];
-    if (!icons.settings)  { list.push("images/settings.png"); }
-    if (!icons.help)      { list.push("images/help.png"); }
-    if (!icons.remaining) { list.push("images/remaining.png"); }
+    let list = ["./images/" + game.folder + "/" + game.name + ".png", "./images/" + game.folder + "/frame.png"];
+    if (!icons.settings)  { list.push("./images/settings.png"); }
+    if (!icons.help)      { list.push("./images/help.png"); }
+    if (!icons.remaining) { list.push("./images/remaining.png"); }
 
     // Check if same game has been already been loaded
     // this way we avoid loading the same image twice
@@ -122,7 +122,7 @@ function LoadImages() {
             }
         }
 
-        list.push("images/" + game.folder + "/maps/" + key + ".png");
+        list.push("./images/" + game.folder + "/maps/" + key + ".png");
     }
 
     // Get marks images
@@ -130,7 +130,7 @@ function LoadImages() {
     for (let row of game.marks) {
         loading_process.row_count += 1;
         for (let pair of row) {
-            if(pair[1] !== undefined && !images.includes(pair[0])) { list.push("images/_marks/" + pair[0] + ".png") }
+            if(pair[1] !== undefined && !images.includes(pair[0])) { list.push("./images/_marks/" + pair[0] + ".png") }
         }
     }
 
@@ -138,11 +138,11 @@ function LoadImages() {
     for (let row of game.progress) {
         loading_process.row_count += 1;
         for (let pair of row) {
-            if (pair[1] !== undefined && !images.includes(pair[0])) { list.push("images/" + game.folder + "/progress/" + pair[0] + ".png") }
+            if (pair[1] !== undefined && !images.includes(pair[0])) { list.push("./images/" + game.folder + "/progress/" + pair[0] + ".png") }
         }
     }
     
-    if (!icons.item_frame) { list.push("images/_marks/item_frame.png"); }
+    if (!icons.item_frame) { list.push("./images/_marks/item_frame.png"); }
 
     // Load all images
     if (list.length == 0) {
